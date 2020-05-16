@@ -1,3 +1,4 @@
+import { ChangePasswordModule } from './modules/change-password/change-password.module';
 import { IsAdminGuard } from './guards/is-admin.guard';
 import { DataProtectionComponent } from './components/data-protection/data-protection.component';
 import { ImpressumComponent } from './components/impressum/impressum.component';
@@ -46,7 +47,11 @@ const routes: Routes = [
       import('./modules/administration/administration.module').then(m => m.AdministrationModule),
     canActivate: [IsAuthenticatedGuard, IsAdminGuard]
   },
-
+  {
+    path: 'change-password', loadChildren: () =>
+      import('./modules/change-password/change-password.module').then(m => m.ChangePasswordModule),
+    canActivate: [IsAuthenticatedGuard]
+  },
   {
     path: 'agb', component: AgbComponent
   },
