@@ -25,6 +25,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @SpringBootApplication
 @EnableJpaAuditing(dateTimeProviderRef = "quaranoDateTimeProvider")
 @ConfigurationPropertiesScan
+@EnableScheduling
 public class Quarano {
 
 	public static void main(String... args) {
